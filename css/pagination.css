@@ -1,0 +1,64 @@
+/* Pagination styles for modern look */
+    .pagination {
+      background: none;
+      padding: 0;
+    }
+    .pagination .page-link,
+    .pagination .page-ellipsis,
+    .pagination .page-next,
+    .pagination .page-prev {
+      color: gold;
+      background: #181818;
+      border: 1px solid gold;
+      margin: 0 2px;
+      border-radius: 8px !important;
+      font-weight: 600;
+      min-width: 32px;
+      min-height: 32px;
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .pagination .page-item.active .page-link,
+    .pagination .page-link:hover,
+    .pagination .page-next:hover,
+    .pagination .page-prev:hover {
+      background: gold;
+      color: #181818;
+      border-color: #fffbe6;
+    }
+    .pagination .page-ellipsis {
+      background: transparent;
+      border: none;
+      color: #ffd700;
+      cursor: default;
+      pointer-events: none;
+      min-width: 20px;
+    }
+    .pagination .page-next,
+    .pagination .page-prev {
+      font-weight: bold;
+    }
+    footer .container {
+      text-align: center;
+    }
+.pagination .page-item.disabled .page-prev,
+.pagination .page-item.disabled .page-next {
+  background: #222 !important;
+  color: #888 !important;
+  border-color: #444 !important;
+  cursor: not-allowed !important;
+  pointer-events: auto; /* allow hover */
+  transition: background 0.2s, color 0.2s;
+}
+.pagination .page-item.disabled .page-prev:hover,
+.pagination .page-item.disabled .page-next:hover {
+  background: #181818 !important;
+  color: #555 !important;
+  border-color: #333 !important;
+}
