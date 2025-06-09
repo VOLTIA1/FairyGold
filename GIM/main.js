@@ -37,23 +37,21 @@ fetch(
       let html = '<div class="row justify-content-center g-2">';
       paged.forEach((row) => {
         let priceNum = Number(row.Price.replace(/,/g, ""));
-        let displayPrice = priceNum;
+        let displayPrice = priceNum ;
+
         if (priceNum >= 1000 && priceNum < 1000000) {
           displayPrice =
             (priceNum / 1000).toLocaleString(undefined, {
               maximumFractionDigits: 2,
             }) + "K";
-        } else if (priceNum >= 1000000 && priceNum < 1000000000) {
+        }
+         else if (priceNum >= 1000000 ) {
           displayPrice =
             (priceNum / 1000000).toLocaleString(undefined, {
               maximumFractionDigits: 2,
             }) + "M";
-        } else if (priceNum >= 1000000000) {
-          displayPrice =
-            (priceNum / 1000000000).toLocaleString(undefined, {
-              maximumFractionDigits: 2,
-            }) + "B";
         }
+       
         html += `
 <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-4">
   <div class="item-card text-center border-0">
@@ -203,6 +201,7 @@ function updateCartDisplay() {
   let total = 0;
   let count = 0;
   let html = "";
+
   Object.values(cart).forEach((item) => {
     let priceNum = Number(item.Price.replace(/,/g, ""));
     let itemTotal = priceNum * item.qty;
@@ -233,21 +232,16 @@ function updateCartDisplay() {
 `;
   });
   function formatGoldPrice(num) {
-    if (num >= 1_000_000_000)
-      return (
-        (num / 1_000_000_000).toLocaleString(undefined, {
-          maximumFractionDigits: 2,
-        }) + "B"
-      );
+    
     if (num >= 1_000_000)
       return (
         (num / 1_000_000).toLocaleString(undefined, {
-          maximumFractionDigits: 2,
+          maximumFractionDigits: 1,
         }) + "M"
       );
     if (num >= 1_000)
       return (
-        (num / 1_000).toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        (num / 1_000).toLocaleString(undefined, { maximumFractionDigits: 1 }) +
         "K"
       );
     return num.toLocaleString();
